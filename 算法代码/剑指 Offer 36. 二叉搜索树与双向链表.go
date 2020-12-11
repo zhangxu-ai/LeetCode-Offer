@@ -2,40 +2,40 @@ package main
 
 import "fmt"
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-//根据数组构造二叉树，-100表示null
-func NewNodeTree(nums []int) *TreeNode {
-	if len(nums) == 0 {
-		return nil
-	}
-	ret := &TreeNode{nums[0], nil, nil}
-	tmp := []*TreeNode{ret}
-	for k, v := range nums {
-		if k == 0 {
-			continue
-		}
-		if v != -100 {
-			index := (k - 1) / 2
-			current := &TreeNode{v, nil, nil}
-			if tmp[index] != nil {
-				if k%2 == 0 {
-					tmp[index].Right = current
-				} else {
-					tmp[index].Left = current
-				}
-			}
-			tmp = append(tmp, current)
-		} else {
-			tmp = append(tmp, nil)
-		}
-	}
-	return ret
-}
+//type TreeNode struct {
+//	Val   int
+//	Left  *TreeNode
+//	Right *TreeNode
+//}
+//
+////根据数组构造二叉树，-100表示null
+//func NewNodeTree(nums []int) *TreeNode {
+//	if len(nums) == 0 {
+//		return nil
+//	}
+//	ret := &TreeNode{nums[0], nil, nil}
+//	tmp := []*TreeNode{ret}
+//	for k, v := range nums {
+//		if k == 0 {
+//			continue
+//		}
+//		if v != -100 {
+//			index := (k - 1) / 2
+//			current := &TreeNode{v, nil, nil}
+//			if tmp[index] != nil {
+//				if k%2 == 0 {
+//					tmp[index].Right = current
+//				} else {
+//					tmp[index].Left = current
+//				}
+//			}
+//			tmp = append(tmp, current)
+//		} else {
+//			tmp = append(tmp, nil)
+//		}
+//	}
+//	return ret
+//}
 
 func treeToDoublyList(root *TreeNode) *TreeNode {
 	h, t := posOrder(root)
