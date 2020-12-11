@@ -2,6 +2,13 @@ package main
 
 import "fmt"
 
+//type TreeNode struct {
+//	Val   int
+//	Left  *TreeNode
+//	Right *TreeNode
+//}
+
+//根据数组构造二叉树，-100表示null
 func NewNodeTree(nums []int) *TreeNode {
 	if len(nums) == 0 {
 		return nil
@@ -12,7 +19,7 @@ func NewNodeTree(nums []int) *TreeNode {
 		if k == 0 {
 			continue
 		}
-		if v != -1 {
+		if v != -100 {
 			index := (k - 1) / 2
 			current := &TreeNode{v, nil, nil}
 			if tmp[index] != nil {
