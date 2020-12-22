@@ -1,4 +1,4 @@
-package main
+package stl
 
 type AvlTree struct {
 	data   int

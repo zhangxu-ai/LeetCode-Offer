@@ -14,50 +14,41 @@ func Constructor3() MinStack2 {
 	}
 }
 
-func (this *MinStack2) Push(x int) {
-	this.data = append(this.data, x)
-	l := len(this.min)
+func (s *MinStack2) Push(x int) {
+	s.data = append(s.data, x)
+	l := len(s.min)
 	if l > 0 {
-		if this.min[l-1] >= x {
-			this.min = append(this.min, x)
+		if s.min[l-1] >= x {
+			s.min = append(s.min, x)
 		}
 	} else {
-		this.min = append(this.min, x)
+		s.min = append(s.min, x)
 	}
 }
 
-func (this *MinStack2) Pop() {
-	l := len(this.data)
+func (s *MinStack2) Pop() {
+	l := len(s.data)
 	if l == 0 {
 		return
 	}
-	if this.data[l-1] == this.min[len(this.min)-1] {
-		this.min = this.min[:len(this.min)-1]
+	if s.data[l-1] == s.min[len(s.min)-1] {
+		s.min = s.min[:len(s.min)-1]
 	}
-	this.data = this.data[:l-1]
+	s.data = s.data[:l-1]
 }
 
-func (this *MinStack2) Top() int {
-	l := len(this.data)
+func (s *MinStack2) Top() int {
+	l := len(s.data)
 	if l == 0 {
 		return 0
 	}
-	return this.data[l-1]
+	return s.data[l-1]
 }
 
-func (this *MinStack2) Min() int {
-	l := len(this.min)
+func (s *MinStack2) Min() int {
+	l := len(s.min)
 	if l == 0 {
 		return 0
 	}
-	return this.min[l-1]
+	return s.min[l-1]
 }
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(x);
- * obj.Pop();
- * param_3 := obj.Top();
- * param_4 := obj.Min();
- */

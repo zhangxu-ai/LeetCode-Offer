@@ -1,4 +1,4 @@
-package main
+package stl
 
 //在有序二叉树中查找某个key并返回该节点
 func (bn *BitNode) SearchByOrder(key interface{}) (*BitNode, bool) {

@@ -1,4 +1,4 @@
-package main
+package stl
 
 func ShellSort(sl []int) {
 	//确定初始间隔为长度/2,之后每一轮减半

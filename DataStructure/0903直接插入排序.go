@@ -1,4 +1,4 @@
-package main
+package stl
 
 func InsertSort(sl []int) {
 	for i := 1; i < len(sl); i++ {

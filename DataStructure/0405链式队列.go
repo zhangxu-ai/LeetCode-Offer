@@ -1,21 +1,21 @@
-package main
+package stl
 
 import (
 	"errors"
 	"fmt"
 )
 
-type QNode struct{
+type QNode struct {
 	data interface{}
 	next *QNode
 }
-type LinkQueue struct{
+type LinkQueue struct {
 	font *QNode
 	rear *QNode
 }
 
-func NewLinkQueue() *LinkQueue{
-	top:=&QNode{
+func NewLinkQueue() *LinkQueue {
+	top := &QNode{
 		data: nil,
 		next: nil,
 	}
@@ -26,34 +26,34 @@ func NewLinkQueue() *LinkQueue{
 }
 
 func (lq *LinkQueue) EnQueue(e interface{}) error {
-	n:=&QNode{
+	n := &QNode{
 		data: e,
 		next: nil,
 	}
 	//尾部指向新节点
-	lq.rear.next=n
+	lq.rear.next = n
 	//更新尾部
-	lq.rear=n
+	lq.rear = n
 	return nil
 }
 
-func (lq *LinkQueue) DeQueue() (interface{},error) {
-	if lq.font.next==nil{
+func (lq *LinkQueue) DeQueue() (interface{}, error) {
+	if lq.font.next == nil {
 		return nil, errors.New("no element now")
 	}
-	e:=lq.font.next.data
+	e := lq.font.next.data
 	//font指向原来的第二个节点，即为删除了第一个节点
-	lq.font.next=lq.font.next.next
+	lq.font.next = lq.font.next.next
 	//如果只有一个元素，删除后将rear节点指回font节点
-	if lq.font.next==nil{
-		lq.rear=lq.font
+	if lq.font.next == nil {
+		lq.rear = lq.font
 	}
 	return e, nil
 }
 
-func main(){
-	lq:=NewLinkQueue()
-	_=lq.EnQueue(9)
-	e,err:=lq.DeQueue()
-	fmt.Println(e,err)
+func main() {
+	lq := NewLinkQueue()
+	_ = lq.EnQueue(9)
+	e, err := lq.DeQueue()
+	fmt.Println(e, err)
 }
