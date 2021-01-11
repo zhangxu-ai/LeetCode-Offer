@@ -18,7 +18,7 @@ func search(nums []int, target int) int {
 	return sum
 }
 
-//排序数组，使用二分法查找左边得边界，理论上会快
+//排序数组，使用二分法查找左边的边界，理论上会快
 //也可以再次寻找右边界
 //89,100
 func search1(nums []int, target int) int {
@@ -46,6 +46,7 @@ func search1(nums []int, target int) int {
 	//return right-left
 }
 
+//寻找左边界
 func searchLeft(nums []int, target int) int {
 	left, right, mid := 0, len(nums)-1, 0
 	//二分查左侧边界
