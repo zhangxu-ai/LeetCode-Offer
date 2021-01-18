@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func reverseLeftWords(s string, n int) string {
 	s = s[n:] + s[0:n]
@@ -16,6 +19,13 @@ func reverseLeftWords1(s string, n int) string {
 		ns += s[i : i+1]
 	}
 	return ns
+}
+
+func reverseLeftWords2(s string, n int) string {
+	sb := new(strings.Builder)
+	sb.WriteString(s[n:])
+	sb.WriteString(s[:n])
+	return sb.String()
 }
 func main() {
 	s := "12345"
