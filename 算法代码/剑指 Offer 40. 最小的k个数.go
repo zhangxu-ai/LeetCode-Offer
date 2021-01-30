@@ -72,6 +72,7 @@ func quickSearch(arr []int, low, high, k int) {
 			i++
 		}
 	}
+	//如果前head+1个正好是k，则说明这些是最小的k个，因为他们都比pivot小
 	if head+1 == k {
 		return
 	} else if head+1 > k {
@@ -111,7 +112,8 @@ func getLeastNumbers3(arr []int, k int) []int {
 func buildHeap(arr []int, n int) {
 	lastNode := len(arr) - 1
 	//每一次都从最后一个节点的父节点开始建堆
-	//记住：i节点的父节点 = (i - 1) / 2  左节点 = 2 * i  - 1  右节点 = 2 * i +  2;
+	//记住：i节点的父节点 = (i - 1) / 2  
+	//左节点 = 2 * i  - 1  右节点 = 2 * i +  2;
 	parent := (lastNode - 1) / 2
 	for i := parent; i >= 0; i-- {
 		heapify(arr, n, i)
