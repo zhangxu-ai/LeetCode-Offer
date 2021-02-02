@@ -15,7 +15,7 @@ func ShellSort(sl []int) {
 			}
 			//直到
 			//1. j的前inc个元素超过了序列的首部，此时j-inc<0
-			//2. j-inc元素大于tmp，且j-inc-inc的元素小于tmp，说明tmp在j-inc之后，
+			//2. j-inc元素小于tmp，且j-inc-inc的元素小于tmp，说明tmp在j-inc之后，
 			//然后将tmp插入到当前j的位置上
 			sl[j] = tmp
 		}
