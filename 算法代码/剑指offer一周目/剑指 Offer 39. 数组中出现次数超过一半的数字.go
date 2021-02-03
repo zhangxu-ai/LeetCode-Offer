@@ -62,40 +62,39 @@ func majorityElement2(nums []int) int {
 则4位出现最多的二进制数字拼起来为0011，值为3，即结果。
 */
 //因为负数是补码形式，所以造成结果都很大，比如-1为4294967295，暂时找不到解决方法
-//func majorityElement3(nums []int) int {
-//	res,l:=0,len(nums)
-//	if l==0{
-//		return 0
-//	}
-//	if l<=2{
-//		return nums[0]
-//	}
-//	for i := 0; i < 32; i++ {
-//		c1:=0
-//		for i2 := 0; i2 < l; i2++ {
-//			//fmt.Printf("%b\n%b\n",uint32(nums[i2]),t)
-//			//判断第i位是1还是0
-//			if nums[i2]>>i&1==1{
-//				c1++
-//			}
-//			//如果第i位里，1占多数，则res上第i位也为1
-//			if c1>l/2{
-//				//1向左移动i位，结果就是第i位为1，其余位还是0
-//				//然后加到res上。因为res初始为0，所以res的第i位也是1了
-//				res^= 1<<i
-//				fmt.Printf("res: %b\n",res)
-//				break
-//			}
-//		}
-//	}
-//	if res>>31==1{
-//		return -res
-//	}
-//	return res
-//}
+func majorityElement3(nums []int) int {
+	res,l:=int32(0),len(nums)
+	if l==0{
+		return 0
+	}
+	if l<=2{
+		return nums[0]
+	}
+	for i := 0; i < 32; i++ {
+		c1:=0
+		t:=int32(1<<i)
+		for i2 := 0; i2 < l; i2++ {
+			//fmt.Printf("%b\n%b\n",uint32(nums[i2]),t)
+			//判断第i位是1还是0
+			fmt.Printf("num:%b t: %b\n",nums[i2],t)
+			if int32(nums[i2])&t!=0{
+				c1++
+			}
+			//如果第i位里，1占多数，则res上第i位也为1
+			if c1>l/2{
+				//1向左移动i位，结果就是第i位为1，其余位还是0
+				//然后加到res上。因为res初始为0，所以res的第i位也是1了
+				res |= t
+				fmt.Printf("i:%d res:%t %v %b\n",i,res,res,res)
+				break
+			}
+		}
+	}
+
+	return int(res)
+}
 //
 func main() {
 	a := []int{-1, -1, 2147483647}
-	fmt.Println(majorityElement2(a))
-
+	fmt.Println(majorityElement3(a))
 }
