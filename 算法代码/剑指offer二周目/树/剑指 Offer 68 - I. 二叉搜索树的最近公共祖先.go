@@ -1,18 +1,18 @@
 package main
 
 type TreeNode struct {
-	val int
-	left *TreeNode
-	right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	cur := root
 	for {
-		if cur.val > p.val && cur.val > q.val {
-			cur = cur.left
-		} else if cur.val < p.val && cur.val < q.val {
-			cur = cur.right
+		if cur.Val > p.Val && cur.Val > q.Val {
+			cur = cur.Left
+		} else if cur.Val < p.Val && cur.Val < q.Val {
+			cur = cur.Right
 		} else {
 			return cur
 		}
