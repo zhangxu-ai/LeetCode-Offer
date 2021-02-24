@@ -78,4 +78,4 @@ OSI是一个**完整的、完善的宏观模型**，他包括了硬件层（物�
 
 ## 数据流向
 
-![data](https://upload-images.jianshu.io/upload_images/2179030-b2b03e6a8075255e.png?imageMogr2/auto-orient/strip|imageView2/2/w/726/format/webp
+![data](https://upload-images.jianshu.io/upload_images/2179030-b2b03e6a8075255e.png?imageMogr2/auto-orient/strip|imageView2/2/w/726/format/webp)
