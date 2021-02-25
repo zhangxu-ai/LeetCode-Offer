@@ -26,9 +26,11 @@ func (q *MaxQueue) Push_back(value int) {
 		q.max = append(q.max, value)
 	} else {
 		i := 0
-		for i = 0; i < len(q.max) && q.max[i] >= value; i++ {
+		for ; i < len(q.max) && q.max[i] >= value; i++ {
 		}
 		q.max[i] = value
+		//i之后的可以不要了，因为他们实际位置都在i之前，
+		//永远不可能成为最大值
 		q.max = q.max[:i+1]
 	}
 }
